@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RightsReady — Know your rights, stay prepared. Join the waitlist for early access." />
+  <title>RightsReady — Join the Waitlist</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0c1220;
+      --bg2:      #101828;
+      --card:     rgba(255,255,255,0.04);
+      --border:   rgba(255,255,255,0.08);
+      --border2:  rgba(255,255,255,0.13);
+      --fg:       #e8eef6;
+      --sub:      #6a7a94;
+      --blue:     #4a7fd4;
+      --blue-dim: rgba(74,127,212,0.15);
+      --green:    #3a9e78;
+      --green-dim:rgba(58,158,120,0.15);
+      --red:      #e04040;
+      --purple:   #c45ca6;
+      --mono:     'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Typography helpers ────────────────────────────────────── */
+    .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sub);
+    }
+
+    .label--blue  { color: var(--blue); }
+    .label--green { color: var(--green); }
+
+    /* ── Buttons ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: opacity 0.15s, transform 0.1s;
+      white-space: nowrap;
+    }
+    .btn:hover   { opacity: 0.9; }
+    .btn:active  { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--blue), #3a6ab8);
+      color: #fff;
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--fg);
+    }
+    .btn--outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ── Cards ─────────────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    /* ── NAV ───────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(12,18,32,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--blue), #2a5aa0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+    }
+
+    .nav-logo-text {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--fg);
+      letter-spacing: -0.3px;
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      padding: 88px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(74,127,212,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (min-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(74,127,212,0.35);
+      background: rgba(74,127,212,0.08);
+      margin-bottom: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .hero-badge span { font-size: 10px; }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--blue), #7ab0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--sub);
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    /* ── Waitlist Form ─────────────────────────────────────────── */
+    .form-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .form-row input[type="email"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border2);
+      color: var(--fg);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input[type="email"]:focus { border-color: var(--blue); }
+    .form-row input[type="email"]::placeholder { color: var(--sub); }
+
+    .trust-line {
+      font-size: 12px;
+      color: var(--sub);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .trust-line::before {
+      content: '🔒';
+      font-size: 11px;
+    }
+
+    /* Form states */
+    .form-success {
+      display: none;
+      padding: 18px 20px;
+      border-radius: 12px;
+      background: var(--green-dim);
+      border: 1px solid rgba(58,158,120,0.35);
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .form-success.visible { display: flex; }
+    .form-success-icon { font-size: 22px; margin-top: 1px; flex-shrink: 0; }
+    .form-success h4 { font-size: 15px; font-weight: 700; color: var(--green); margin-bottom: 3px; }
+    .form-success p  { font-size: 13px; color: var(--sub); }
+
+    .form-error {
+      display: none;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #f87171;
+      padding: 10px 14px;
+      background: rgba(224,64,64,0.08);
+      border: 1px solid rgba(224,64,64,0.2);
+      border-radius: 8px;
+    }
+    .form-error.visible { display: block; }
+
+    /* ── App preview card ──────────────────────────────────────── */
+    .app-preview {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(74,127,212,0.06), transparent 60%);
+      pointer-events: none;
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .preview-header-left {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    .preview-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 6px var(--red);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+
+    .preview-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .preview-card:last-child { margin-bottom: 0; }
+
+    .preview-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .preview-card-text {}
+    .preview-card-title { font-size: 13px; font-weight: 700; color: var(--fg); margin-bottom: 2px; }
+    .preview-card-sub   { font-size: 11px; color: var(--sub); }
+
+    .preview-phrase {
+      margin-top: 14px;
+      border-left: 3px solid var(--blue);
+      padding: 10px 14px;
+      background: rgba(74,127,212,0.08);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .preview-phrase-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--blue);
+      margin-bottom: 5px;
+    }
+
+    .preview-phrase-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--fg);
+      font-family: var(--mono);
+    }
+
+    /* ── BIO LINK BANNER ───────────────────────────────────────── */
+    .bio-banner {
+      background: linear-gradient(135deg, rgba(74,127,212,0.1), rgba(58,158,120,0.08));
+      border: 1px solid rgba(74,127,212,0.25);
+      border-radius: 12px;
+      padding: 16px 24px;
+      text-align: center;
+      margin: 0 0 60px;
+      font-size: 14px;
+      color: var(--sub);
+    }
+
+    .bio-banner strong {
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    /* ── SECTION common ────────────────────────────────────────── */
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      text-align: center;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--sub);
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 56px;
+      line-height: 1.65;
+    }
+
+    /* ── FEATURES ──────────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .features-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border2);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--sub);
+      line-height: 1.6;
+    }
+
+    /* ── WHY IT MATTERS ────────────────────────────────────────── */
+    .why-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 32px;
+      text-align: center;
+      min-width: 160px;
+      flex: 1;
+      max-width: 220px;
+    }
+
+    .stat-card .stat-num {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--fg);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat-card .stat-label {
+      font-size: 12px;
+      color: var(--sub);
+      line-height: 1.4;
+    }
+
+    /* ── HOW IT WORKS ──────────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .steps { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      text-align: center;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), #3a6ab8);
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: var(--sub);
+      line-height: 1.6;
+    }
+
+    /* ── FAQ ───────────────────────────────────────────────────── */
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item.open { border-color: var(--border2); }
+
+    .faq-btn {
+      width: 100%;
+      background: var(--card);
+      border: none;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .faq-btn:hover { background: rgba(255,255,255,0.06); }
+
+    .faq-btn-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .faq-chevron {
+      color: var(--sub);
+      font-size: 18px;
+      transition: transform 0.22s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s cubic-bezier(0.4, 0, 0.2, 1), padding 0.2s;
+      padding: 0 22px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .faq-item.open .faq-body {
+      max-height: 300px;
+      padding: 16px 22px 20px;
+    }
+
+    .faq-body p {
+      font-size: 14px;
+      color: var(--sub);
+      line-height: 1.7;
+    }
+
+    /* ── FINAL CTA ─────────────────────────────────────────────── */
+    .final-cta {
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      color: var(--fg);
+      margin-bottom: 18px;
+    }
+
+    .final-cta p {
+      font-size: 17px;
+      color: var(--sub);
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-form {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-inner p {
+      font-size: 13px;
+      color: var(--sub);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--sub);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    /* ── Animations ────────────────────────────────────────────── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .fade-up-1 { animation-delay: 0.05s; }
+    .fade-up-2 { animation-delay: 0.15s; }
+    .fade-up-3 { animation-delay: 0.25s; }
+    .fade-up-4 { animation-delay: 0.35s; }
+    .fade-up-5 { animation-delay: 0.45s; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════════════ -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="nav-logo-icon">🛡️</div>
+          <span class="nav-logo-text">RightsReady</span>
+        </div>
+        <a href="#waitlist" class="btn btn--primary" style="padding: 10px 20px; font-size: 13px;">
+          Join the Waitlist
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ═════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: Copy + Form -->
+        <div>
+          <div class="hero-badge fade-up fade-up-1">
+            <span>🔒</span> Launching soon — early access open
+          </div>
+
+          <h1 class="fade-up fade-up-2">
+            Your rights,<br /><em>ready when it matters.</em>
+          </h1>
+
+          <p class="hero-sub fade-up fade-up-3">
+            RightsReady puts critical legal rights, emergency guidance, and important documents in your pocket — offline, fast, and ready before a stressful situation turns dangerous.
+          </p>
+
+          <!-- Waitlist form -->
+          <div id="hero-form-wrap" class="fade-up fade-up-4">
+            <form id="hero-form" onsubmit="handleSubmit(event, 'hero-form', 'hero-success', 'hero-error')" novalidate>
+              <div class="form-row">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  autocomplete="email"
+                  required
+                  aria-label="Email address"
+                />
+                <button type="submit" class="btn btn--primary" id="hero-submit-btn">
+                  Join the Waitlist →
+                </button>
+              </div>
+              <p class="trust-line">Early access updates. No spam. Unsubscribe any time.</p>
+              <div id="hero-error" class="form-error" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div id="hero-success" class="form-success fade-up" aria-live="polite">
+            <div class="form-success-icon">✅</div>
+            <div>
+              <h4>You're on the list.</h4>
+              <p>We'll send you an email when RightsReady is ready. Stay prepared.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: App preview mockup -->
+        <div class="app-preview fade-up fade-up-5" aria-hidden="true">
+          <div class="preview-header">
+            <span class="preview-header-left">🛡️ RightsReady</span>
+            <div class="preview-dot" title="Live"></div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-icon" style="background: rgba(74,127,212,0.15);">🚔</div>
+            <div class="preview-card-text">
+              <div class="preview-card-title">Traffic Stop</div>
+              <div class="preview-card-sub">Know your rights step by step</div>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-icon" style="background: rgba(58,158,120,0.15);">🏠</div>
+            <div class="preview-card-text">
+              <div class="preview-card-title">Tenant Rights</div>
+              <div class="preview-card-sub">Eviction, inspections, deposits</div>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-icon" style="background: rgba(196,92,166,0.15);">🌐</div>
+            <div class="preview-card-text">
+              <div class="preview-card-title">Emergency Translator</div>
+              <div class="preview-card-sub">16 languages — works offline</div>
+            </div>
+          </div>
+
+          <div class="preview-phrase">
+            <div class="preview-phrase-label">SAY THIS</div>
+            <div class="preview-phrase-text">"I do not consent to a search."</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BIO LINK BANNER ══════════════════════════════════════════ -->
+  <div class="container">
+    <div class="bio-banner">
+      📲 <strong>Join the waitlist — link in bio</strong> &nbsp;·&nbsp; Be first to know when RightsReady launches
+    </div>
+  </div>
+
+  <!-- ══ FEATURES ═════════════════════════════════════════════════ -->
+  <section id="features">
+    <div class="container">
+      <p class="label label--blue section-label">What's inside</p>
+      <h2 class="section-title">Everything you need in one place</h2>
+      <p class="section-sub">
+        Built for real situations — not hypotheticals. RightsReady gives you the exact information you need, exactly when you need it.
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(74,127,212,0.15);">⚖️</div>
+          <h3>Know Your Rights Fast</h3>
+          <p>Step-by-step guidance for police encounters, traffic stops, tenant rights, workplace disputes, and more — presented clearly when stress is high.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(224,64,64,0.12);">🩺</div>
+          <h3>Emergency Guidance</h3>
+          <p>Critical safety information and emergency procedures when every second counts. Calm, clear, and actionable — no medical jargon.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(58,158,120,0.15);">📵</div>
+          <h3>Works Fully Offline</h3>
+          <p>No signal? No problem. All core content is stored directly on your device. RightsReady works in basements, rural areas, and dead zones.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(196,92,166,0.15);">🔐</div>
+          <h3>Save Important Documents</h3>
+          <p>Securely store insurance cards, ID numbers, and emergency contacts in an encrypted vault — accessible offline with biometric authentication.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHY IT MATTERS ═══════════════════════════════════════════ -->
+  <section id="why">
+    <div class="container">
+      <div class="why-inner">
+        <p class="label label--green section-label">Why it matters</p>
+        <h2 class="section-title">Stressful moments happen fast</h2>
+        <p class="section-sub" style="margin-bottom: 24px;">
+          In a high-pressure situation — a traffic stop, a medical emergency, a dispute with a landlord — most people freeze. Not because they're careless, but because they don't have the right information available in the right format at the right moment.
+        </p>
+        <p style="font-size: 17px; color: var(--sub); text-align: center; max-width: 580px; margin: 0 auto 0; line-height: 1.65;">
+          RightsReady exists to close that gap. Critical information, organized for the moment you need it. Offline. Private. Always ready.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Rights topics covered at launch</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">16</span>
+            <span class="stat-label">Languages in the emergency translator</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Core features available offline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOW IT WORKS ══════════════════════════════════════════════ -->
+  <section id="how">
+    <div class="container">
+      <p class="label section-label">Getting started</p>
+      <h2 class="section-title">Simple from day one</h2>
+      <p class="section-sub">No complex setup. No account required to access core content. Just open the app and know your rights.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Join the Waitlist</h3>
+          <p>Enter your email and reserve your spot. We'll notify you as soon as early access opens.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Get Launch Updates</h3>
+          <p>Receive occasional updates on the app's progress, features, and your early access status. No noise.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Get Early Access</h3>
+          <p>Be among the first to download RightsReady. Early access users get priority features and help shape what's built.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ═══════════════════════════════════════════════════════ -->
+  <section id="faq">
+    <div class="container">
+      <p class="label section-label">Questions</p>
+      <h2 class="section-title">Frequently asked</h2>
+      <p class="section-sub">Still not sure? Here's what most people want to know.</p>
+
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">What is RightsReady?</span>
+            <span class="faq-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="faq-body">
+            <p>RightsReady is a mobile app designed to give you clear, actionable guidance on your legal rights, emergency procedures, and important personal information — all available offline and organized for high-stress moments. Whether you're being pulled over, dealing with a landlord dispute, or responding to an emergency, RightsReady helps you stay prepared.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Is RightsReady available yet?</span>
+            <span class="faq-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="faq-body">
+            <p>RightsReady is currently in final development. We're preparing for an early access launch and are accepting waitlist signups now. People on the waitlist will be the first to receive download access when we go live.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">What do I get by joining the waitlist?</span>
+            <span class="faq-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="faq-body">
+            <p>Waitlist members get first access when the app launches, occasional product updates, and the opportunity to provide feedback that directly shapes the app's features. We keep email communication minimal — you'll only hear from us when it matters.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Is the app free to use?</span>
+            <span class="faq-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="faq-body">
+            <p>RightsReady's core content — rights guides, emergency information, offline translator, and document vault — is available for free. A Pro tier will unlock advanced features. Early access users will receive extended free access to Pro features as a thank-you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Which platforms will it support?</span>
+            <span class="faq-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="faq-body">
+            <p>RightsReady is being built for iOS and Android simultaneously. Both platforms will be supported at launch. A web version may follow post-launch.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA ══════════════════════════════════════════════════ -->
+  <section id="waitlist">
+    <div class="container">
+      <div class="final-cta">
+        <p class="label label--blue section-label">Early access</p>
+        <h2>Don't face it<br />unprepared.</h2>
+        <p>
+          The right information at the wrong moment is still the wrong information. Join the waitlist and be ready before the moment comes.
+        </p>
+
+        <div class="final-form">
+          <form id="final-form" onsubmit="handleSubmit(event, 'final-form', 'final-success', 'final-error')" novalidate>
+            <div class="form-row" style="flex-direction: column;">
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                required
+                aria-label="Email address"
+                style="text-align: center;"
+              />
+              <button type="submit" class="btn btn--primary" id="final-submit-btn" style="width: 100%; justify-content: center;">
+                Join the Waitlist →
+              </button>
+            </div>
+            <p class="trust-line" style="justify-content: center; margin-top: 8px;">Early access updates. No spam.</p>
+            <div id="final-error" class="form-error" role="alert" aria-live="polite"></div>
+          </form>
+
+          <div id="final-success" class="form-success" aria-live="polite">
+            <div class="form-success-icon">✅</div>
+            <div>
+              <h4>You're on the list.</h4>
+              <p>We'll email you when RightsReady is ready. Stay prepared.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p>© 2025 RightsReady. Know your rights.</p>
+        <div class="footer-links">
+          <a href="./privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── FAQ accordion ─────────────────────────────────────────── */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    /* ── Waitlist form submission ──────────────────────────────── */
+    /*
+     * TODO: Replace the placeholder below with your real submission endpoint.
+     * Options:
+     *   - Mailchimp:   POST to https://yourapp.us1.list-manage.com/subscribe/post-json
+     *   - ConvertKit:  POST to https://api.convertkit.com/v3/forms/{FORM_ID}/subscribe
+     *   - Supabase:    POST to https://yourproject.supabase.co/rest/v1/waitlist
+     *   - Resend:      POST to https://api.resend.com/audiences/{AUDIENCE_ID}/contacts
+     *   - Custom API:  POST to your own backend route
+     *
+     * Expected request body: JSON { email: "user@example.com" }
+     * Expected success response: HTTP 200 / 201
+     */
+    const WAITLIST_ENDPOINT = ''; // ← Set this to your submission URL
+
+    async function handleSubmit(event, formId, successId, errorId) {
+      event.preventDefault();
+
+      const form       = document.getElementById(formId);
+      const successEl  = document.getElementById(successId);
+      const errorEl    = document.getElementById(errorId);
+      const submitBtn  = form.querySelector('[type="submit"]');
+      const emailInput = form.querySelector('[type="email"]');
+      const email      = emailInput.value.trim();
+
+      // Basic validation
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError(errorEl, 'Please enter a valid email address.');
+        emailInput.focus();
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Joining…';
+      errorEl.classList.remove('visible');
+
+      try {
+        if (!WAITLIST_ENDPOINT) {
+          // ── DEMO MODE: no endpoint configured ──────────────────
+          // Remove this block and uncomment the fetch below once your
+          // endpoint is ready. This just simulates a successful signup.
+          await new Promise(r => setTimeout(r, 800)); // simulate network
+          showSuccess(form, successEl);
+          return;
+        }
+
+        // ── REAL SUBMISSION ─────────────────────────────────────
+        const res = await fetch(WAITLIST_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data?.message || `Error ${res.status}`);
+        }
+
+        showSuccess(form, successEl);
+
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join the Waitlist →';
+        showError(errorEl, err.message || 'Something went wrong. Please try again.');
+      }
+    }
+
+    function showSuccess(form, successEl) {
+      form.style.display = 'none';
+      successEl.classList.add('visible');
+    }
+
+    function showError(errorEl, message) {
+      errorEl.textContent = message;
+      errorEl.classList.add('visible');
+    }
+
+    /* ── Intersection observer: scroll fade-up for sections ────── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.feature-card, .step, .stat-card, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
