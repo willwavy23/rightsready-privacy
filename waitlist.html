@@ -760,10 +760,18 @@
             </a>
 
             <!-- iPhone: email waitlist -->
+            <div class="waitlist-form-wrap">
             <p style="font-size: 12px; color: var(--sub); margin-bottom: 14px; display: flex; align-items: center; gap: 6px;">
               🍎 <strong style="color: var(--fg);">iPhone version coming soon</strong> — get notified when it's ready:
             </p>
-            <form id="hero-form" onsubmit="handleSubmit(event, 'hero-form', 'hero-success', 'hero-error')" novalidate>
+            <form
+              action="https://formsubmit.co/willwavyproductions@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="RightsReady — iPhone Waitlist Signup" />
+              <input type="hidden" name="_next" value="https://willwavy23.github.io/rightsready-privacy/waitlist.html?success=1" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" style="display:none" />
               <div class="form-row">
                 <input
                   type="email"
@@ -773,14 +781,13 @@
                   required
                   aria-label="Email address for iPhone waitlist"
                 />
-                <button type="submit" class="btn btn--outline" id="hero-submit-btn">
+                <button type="submit" class="btn btn--outline">
                   Notify Me →
                 </button>
               </div>
               <p class="trust-line">iPhone launch notification only. No spam.</p>
-              <div id="hero-error" class="form-error" role="alert" aria-live="polite"></div>
             </form>
-          </div>
+            </div>
 
           <div id="hero-success" class="form-success fade-up" aria-live="polite">
             <div class="form-success-icon">✅</div>
@@ -1023,10 +1030,18 @@
           </a>
 
           <!-- iPhone: email waitlist -->
+          <div class="waitlist-form-wrap">
           <p style="font-size: 12px; color: var(--sub); margin-bottom: 14px; text-align: center;">
             🍎 <strong style="color: var(--fg);">iPhone coming soon</strong> — enter your email to be notified:
           </p>
-          <form id="final-form" onsubmit="handleSubmit(event, 'final-form', 'final-success', 'final-error')" novalidate>
+          <form
+            action="https://formsubmit.co/willwavyproductions@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="RightsReady — iPhone Waitlist Signup" />
+            <input type="hidden" name="_next" value="https://willwavy23.github.io/rightsready-privacy/waitlist.html?success=1" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" />
             <div class="form-row" style="flex-direction: column;">
               <input
                 type="email"
@@ -1037,13 +1052,13 @@
                 aria-label="Email address for iPhone waitlist"
                 style="text-align: center;"
               />
-              <button type="submit" class="btn btn--outline" id="final-submit-btn" style="width: 100%; justify-content: center;">
+              <button type="submit" class="btn btn--outline" style="width: 100%; justify-content: center;">
                 Notify Me for iPhone →
               </button>
             </div>
             <p class="trust-line" style="justify-content: center; margin-top: 8px;">iPhone launch notification only. No spam.</p>
-            <div id="final-error" class="form-error" role="alert" aria-live="polite"></div>
           </form>
+          </div>
 
           <div id="final-success" class="form-success" aria-live="polite">
             <div class="form-success-icon">✅</div>
@@ -1087,87 +1102,12 @@
       }
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       FORMSUBMIT CONFIG
-       ──────────────────────────────────────────────────────────────
-       ↓↓↓ PASTE YOUR EMAIL ADDRESS HERE ↓↓↓
-    ══════════════════════════════════════════════════════════════ */
-    const FS_EMAIL = 'willwavyproductions@gmail.com';
-
-    /*
-     * FormSubmit AJAX endpoint (formsubmit.co/ajax/YOUR_EMAIL):
-     * - Works on static GitHub Pages — no backend, no account required
-     * - Returns JSON: { success: "true" } or { success: "false", message: "..." }
-     * - FIRST SUBMISSION triggers a one-time activation email to FS_EMAIL.
-     *   Click the confirmation link — after that, all submissions land in your inbox.
-     * - _subject:       subject line of every notification email you receive
-     * - _autoresponse:  auto-reply sent back to the person who signed up
-     * - _captcha:false  disables FormSubmit's reCAPTCHA (sufficient for a waitlist)
-     * - _honey:         empty honeypot field — blocks most spam bots automatically
-     * - _replyto:       sets reply-to header so you can reply directly to signups
-     */
-
-    /* ── Form submit handler ───────────────────────────────────── */
-    async function handleSubmit(event, formId, successId, errorId) {
-      event.preventDefault();
-
-      const form       = document.getElementById(formId);
-      const successEl  = document.getElementById(successId);
-      const errorEl    = document.getElementById(errorId);
-      const submitBtn  = form.querySelector('[type="submit"]');
-      const emailInput = form.querySelector('[type="email"]');
-      const email      = emailInput.value.trim();
-
-      // Client-side validation
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showError(errorEl, 'Please enter a valid email address.');
-        emailInput.focus();
-        return;
-      }
-
-      // Loading state
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Joining…';
-      errorEl.classList.remove('visible');
-
-      try {
-        const res = await fetch('https://formsubmit.co/ajax/' + FS_EMAIL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          body: JSON.stringify({
-            email:    email,
-            _replyto: email,
-            _subject: 'RightsReady — iPhone Waitlist Signup',
-            _captcha: 'false',
-            _honey:   '',
-          }),
-        });
-
-        const data = await res.json();
-
-        if (data.success === 'true' || data.success === true) {
-          showSuccess(form, successEl);
-        } else {
-          throw new Error(data.message || 'Submission failed.');
-        }
-      } catch (err) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Join the Waitlist →';
-        showError(errorEl, 'Something went wrong. Please try again.');
-      }
-    }
-
-    function showSuccess(form, successEl) {
-      form.style.display = 'none';
-      successEl.classList.add('visible');
-    }
-
-    function showError(errorEl, message) {
-      errorEl.textContent = message;
-      errorEl.classList.add('visible');
+    /* ── Show success UI if redirected back after FormSubmit POST ── */
+    if (new URLSearchParams(window.location.search).get('success') === '1') {
+      document.querySelectorAll('.waitlist-form-wrap').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.form-success').forEach(el => el.classList.add('visible'));
+      // Clean the URL without reloading
+      history.replaceState(null, '', window.location.pathname);
     }
 
     /* ── Intersection observer: scroll fade-up for sections ────── */
