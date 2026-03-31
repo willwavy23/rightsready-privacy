@@ -11,6 +11,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
+  <!-- ══ TALLY EMBED SCRIPT ══════════════════════════════════════════
+       This loads Tally's popup widget. Required once per page.
+       Do not remove this. ── -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
   <style>
     /* ── Reset & Base ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -219,30 +224,7 @@
       margin-bottom: 36px;
     }
 
-    /* ── Waitlist Form ─────────────────────────────────────────── */
-    .form-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .form-row input[type="email"] {
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border2);
-      color: var(--fg);
-      font-size: 15px;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-row input[type="email"]:focus { border-color: var(--blue); }
-    .form-row input[type="email"]::placeholder { color: var(--sub); }
-
+    /* ── Waitlist CTA ──────────────────────────────────────────── */
     .trust-line {
       font-size: 12px;
       color: var(--sub);
@@ -254,33 +236,6 @@
       content: '🔒';
       font-size: 11px;
     }
-
-    /* Form states */
-    .form-success {
-      display: none;
-      padding: 18px 20px;
-      border-radius: 12px;
-      background: var(--green-dim);
-      border: 1px solid rgba(58,158,120,0.35);
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .form-success.visible { display: flex; }
-    .form-success-icon { font-size: 22px; margin-top: 1px; flex-shrink: 0; }
-    .form-success h4 { font-size: 15px; font-weight: 700; color: var(--green); margin-bottom: 3px; }
-    .form-success p  { font-size: 13px; color: var(--sub); }
-
-    .form-error {
-      display: none;
-      margin-top: 8px;
-      font-size: 13px;
-      color: #f87171;
-      padding: 10px 14px;
-      background: rgba(224,64,64,0.08);
-      border: 1px solid rgba(224,64,64,0.2);
-      border-radius: 8px;
-    }
-    .form-error.visible { display: block; }
 
     /* ── App preview card ──────────────────────────────────────── */
     .app-preview {
@@ -759,43 +714,26 @@
               <span style="font-size: 20px; line-height: 1;">▶</span> Download for Android
             </a>
 
-            <!-- iPhone: email waitlist -->
-            <div class="waitlist-form-wrap">
+            <!-- ══ IPHONE WAITLIST — TALLY ══════════════════════════
+                 Paste your Tally form ID in data-tally-open below.
+                 Example: if your Tally form URL is https://tally.so/r/abc123
+                 then set  data-tally-open="abc123"
+                 ══════════════════════════════════════════════════════ -->
             <p style="font-size: 12px; color: var(--sub); margin-bottom: 14px; display: flex; align-items: center; gap: 6px;">
               🍎 <strong style="color: var(--fg);">iPhone version coming soon</strong> — get notified when it's ready:
             </p>
-            <form
-              action="https://formsubmit.co/willwavyproductions@gmail.com"
-              method="POST"
+            <button
+              data-tally-open="rjLygo"
+              data-tally-width="420"
+              data-tally-overlay="1"
+              data-tally-emoji-text="👋"
+              data-tally-emoji-animation="wave"
+              class="btn btn--outline"
+              style="width: 100%; justify-content: center;"
             >
-              <input type="hidden" name="_subject" value="RightsReady — iPhone Waitlist Signup" />
-              <input type="hidden" name="_next" value="https://willwavy23.github.io/rightsready-privacy/waitlist.html?success=1" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="text" name="_honey" style="display:none" />
-              <div class="form-row">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your email for iPhone launch"
-                  autocomplete="email"
-                  required
-                  aria-label="Email address for iPhone waitlist"
-                />
-                <button type="submit" class="btn btn--outline">
-                  Notify Me →
-                </button>
-              </div>
-              <p class="trust-line">iPhone launch notification only. No spam.</p>
-            </form>
-            </div>
-
-          <div id="hero-success" class="form-success fade-up" aria-live="polite">
-            <div class="form-success-icon">✅</div>
-            <div>
-              <h4>You're on the list.</h4>
-              <p>We'll email you when the iPhone version of RightsReady is ready.</p>
-            </div>
-          </div>
+              🍎 Join the iPhone Waitlist →
+            </button>
+            <p class="trust-line" style="margin-top: 10px;">iPhone launch notification only. No spam.</p>
         </div>
 
         <!-- Right: App preview mockup -->
@@ -1029,44 +967,25 @@
             <span style="font-size: 20px; line-height: 1;">▶</span> Download for Android
           </a>
 
-          <!-- iPhone: email waitlist -->
-          <div class="waitlist-form-wrap">
+          <!-- ══ IPHONE WAITLIST — TALLY (bottom CTA) ═══════════════
+               Same Tally form ID as above. Paste your form ID below.
+               Example: data-tally-open="abc123"
+               ══════════════════════════════════════════════════════ -->
           <p style="font-size: 12px; color: var(--sub); margin-bottom: 14px; text-align: center;">
-            🍎 <strong style="color: var(--fg);">iPhone coming soon</strong> — enter your email to be notified:
+            🍎 <strong style="color: var(--fg);">iPhone coming soon</strong> — get notified at launch:
           </p>
-          <form
-            action="https://formsubmit.co/willwavyproductions@gmail.com"
-            method="POST"
+          <button
+            data-tally-open="rjLygo"
+            data-tally-width="420"
+            data-tally-overlay="1"
+            data-tally-emoji-text="👋"
+            data-tally-emoji-animation="wave"
+            class="btn btn--outline"
+            style="width: 100%; justify-content: center;"
           >
-            <input type="hidden" name="_subject" value="RightsReady — iPhone Waitlist Signup" />
-            <input type="hidden" name="_next" value="https://willwavy23.github.io/rightsready-privacy/waitlist.html?success=1" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="_honey" style="display:none" />
-            <div class="form-row" style="flex-direction: column;">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your email for iPhone launch"
-                autocomplete="email"
-                required
-                aria-label="Email address for iPhone waitlist"
-                style="text-align: center;"
-              />
-              <button type="submit" class="btn btn--outline" style="width: 100%; justify-content: center;">
-                Notify Me for iPhone →
-              </button>
-            </div>
-            <p class="trust-line" style="justify-content: center; margin-top: 8px;">iPhone launch notification only. No spam.</p>
-          </form>
-          </div>
-
-          <div id="final-success" class="form-success" aria-live="polite">
-            <div class="form-success-icon">✅</div>
-            <div>
-              <h4>You're on the list.</h4>
-              <p>We'll email you when the iPhone version is ready. Stay prepared.</p>
-            </div>
-          </div>
+            🍎 Join the iPhone Waitlist →
+          </button>
+          <p class="trust-line" style="justify-content: center; margin-top: 10px;">iPhone launch notification only. No spam.</p>
         </div>
 
       </div>
@@ -1100,14 +1019,6 @@
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
       }
-    }
-
-    /* ── Show success UI if redirected back after FormSubmit POST ── */
-    if (new URLSearchParams(window.location.search).get('success') === '1') {
-      document.querySelectorAll('.waitlist-form-wrap').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.form-success').forEach(el => el.classList.add('visible'));
-      // Clean the URL without reloading
-      history.replaceState(null, '', window.location.pathname);
     }
 
     /* ── Intersection observer: scroll fade-up for sections ────── */
